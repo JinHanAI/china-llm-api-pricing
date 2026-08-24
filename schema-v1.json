@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/JinHanAI/china-llm-api-pricing/main/schema-v1.json",
+  "title": "China LLM API Pricing",
+  "type": "object",
+  "required": ["asOf", "currency", "unit", "models"],
+  "properties": {
+    "asOf": { "type": "string", "format": "date", "description": "Date the prices were last verified" },
+    "currency": { "const": "USD" },
+    "unit": { "type": "string" },
+    "disclaimer": { "type": "string" },
+    "models": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "vendor", "source"],
+        "properties": {
+          "id": { "type": "string", "description": "lowercase model id" },
+          "vendor": { "type": "string" },
+          "input": { "type": ["number", "null"], "description": "USD per 1M input tokens" },
+          "cachedInput": { "type": ["number", "null"] },
+          "output": { "type": ["number", "null"], "description": "USD per 1M output tokens" },
+          "context": { "type": ["string", "null"], "description": "e.g. 1M, 262K" },
+          "status": { "type": ["string", "null"] },
+          "note": { "type": "string" },
+          "source": { "type": "string", "format": "uri", "description": "official doc or dated aggregator — mandatory" }
+        }
+      }
+    },
+    "videoModels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "vendor", "unit", "price", "source"],
+        "properties": {
+          "id": { "type": "string" },
+          "vendor": { "type": "string" },
+          "unit": { "type": "string" },
+          "price": { "type": "string" },
+          "source": { "type": "string" }
+        }
+      }
+    }
+  }
+}
