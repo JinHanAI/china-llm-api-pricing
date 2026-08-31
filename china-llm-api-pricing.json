@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JinHanAI/china-llm-api-pricing/main/schema-v1.json",
-  "asOf": "2026-08-23",
+  "asOf": "2026-09-01",
   "currency": "USD",
   "unit": "per 1M tokens (input/output)",
   "disclaimer": "Community-maintained mirror of official list prices. Prices change weekly — always verify against the vendor docs linked in each entry before committing to spend.",
@@ -8,19 +8,27 @@
     {
       "id": "glm-5.3",
       "vendor": "Zhipu AI / Z.ai",
-      "input": 1.40,
+      "input": 1.4,
       "cachedInput": 0.26,
-      "output": 4.40,
+      "output": 4.4,
       "context": "1M",
       "status": "GA (API since 2026-08-19)",
       "source": "https://docs.z.ai/guides/overview/pricing"
     },
     {
+      "id": "glm-5.3-flash",
+      "vendor": "Zhipu / Z.ai",
+      "input": 0.15,
+      "output": 0.5,
+      "note": "list price; limited-time $0.075/$0.25 promo ends 2026-09-09; cached input $0.015 (storage limited-time free)",
+      "source": "https://docs.z.ai/guides/overview/pricing"
+    },
+    {
       "id": "glm-5.2",
       "vendor": "Zhipu AI / Z.ai",
-      "input": 1.40,
+      "input": 1.4,
       "cachedInput": 0.26,
-      "output": 4.40,
+      "output": 4.4,
       "context": "1M",
       "status": "GA",
       "source": "https://docs.z.ai/guides/overview/pricing"
@@ -28,48 +36,51 @@
     {
       "id": "qwen3.8-max",
       "vendor": "Alibaba",
-      "input": 2.00,
-      "output": 6.00,
+      "input": 2.0,
+      "output": 6.0,
       "context": "256K+",
       "status": "GA (Model Studio)",
-      "source": "https://www.alibabacloud.com/help/en/model-studio/models"
+      "source": "https://www.alibabacloud.com/help/en/model-studio/billing-for-model-studio",
+      "note": "International (Singapore scope) price; other regions e.g. Beijing $1.65/$4.951"
     },
     {
       "id": "qwen3.5-flash",
       "vendor": "Alibaba",
       "input": 0.029,
-      "output": null,
+      "output": 0.287,
       "context": null,
-      "note": "cheapest input price observed; output price not yet verified — pending",
-      "source": "https://www.llmabacus.com/en/chinese-llm-api-pricing"
+      "note": "Beijing region ≤128K tier; Intl (Singapore) $0.10/$0.40; 128K-1M tiers higher",
+      "source": "https://www.alibabacloud.com/help/en/model-studio/billing-for-model-studio"
     },
     {
       "id": "deepseek-v4-flash",
       "vendor": "DeepSeek",
-      "input": 0.14,
-      "output": 0.28,
+      "input": 0.44,
+      "output": 1.32,
       "context": null,
       "status": "GA",
-      "source": "https://www.morphllm.com/llm-api"
+      "source": "https://api-docs.deepseek.com/quick_start/pricing",
+      "note": "PEAK cache-miss rates; off-peak = 50% (weekends all-day off-peak per 2026-08-23 billing rule); cache-hit input $0.014 peak / $0.007 off-peak. Restructured from earlier $0.14/$0.28 listing — 2026-09-01 re-verified"
     },
     {
       "id": "deepseek-v4-pro",
       "vendor": "DeepSeek",
-      "input": null,
-      "output": 0.87,
+      "input": 1.32,
+      "output": 3.96,
       "context": null,
-      "note": "cheapest frontier output price observed; input price pending",
-      "source": "https://apidog.com/blog/chinese-llm-price-war-2026/"
+      "note": "PEAK cache-miss rates; off-peak = 50%; cache-hit input $0.044 peak / $0.022 off-peak. 2026-09-01 re-verified",
+      "source": "https://api-docs.deepseek.com/quick_start/pricing"
     },
     {
       "id": "kimi-k3",
       "vendor": "Moonshot AI",
-      "input": 3.00,
-      "cachedInput": 0.30,
-      "output": 15.00,
+      "input": 3.0,
+      "cachedInput": 0.3,
+      "output": 15.0,
       "context": "1M",
       "status": "GA",
-      "source": "https://platform.kimi.ai/"
+      "source": "https://platform.kimi.ai/",
+      "note": "cache-hit input $0.30/MTok; 2026-09-01 re-verified"
     },
     {
       "id": "kimi-k2.5",
@@ -78,24 +89,25 @@
       "output": 2.25,
       "context": "262K",
       "status": "GA",
-      "source": "https://openrouter.ai/moonshotai/kimi-k2.5"
+      "source": "https://openrouter.ai/moonshotai/kimi-k2.5",
+      "note": "official homepage no longer lists K2.5 (K2.6/K2.7-Code at $0.95/$4.00); figure via OpenRouter — treat as secondary"
     },
     {
       "id": "minimax-m3",
       "vendor": "MiniMax",
-      "input": 0.60,
-      "output": 2.40,
+      "input": 0.6,
+      "output": 2.4,
       "context": null,
-      "note": "cheapest model scoring >80% on SWE-bench (per MorphLLM)",
-      "source": "https://www.morphllm.com/llm-api"
+      "note": "official list ≤512K tier; permanent 50% off at checkout → $0.30/$1.20; >512K tier $1.20/$4.80 list",
+      "source": "https://platform.minimax.io/docs/guides/pricing-paygo"
     },
     {
       "id": "mimo-v2.5-pro",
       "vendor": "Xiaomi",
       "input": null,
-      "output": 3.00,
+      "output": 3.0,
       "context": "1M",
-      "note": "flat output price at 1M context",
+      "note": "flat output price at 1M context [2026-09-01: official page not re-verified this round]",
       "source": "https://apidog.com/blog/chinese-llm-price-war-2026/"
     }
   ],
